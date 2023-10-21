@@ -1,27 +1,28 @@
 class Page {
 
   Screen screen;
-
-  ArrayList<Page> subPages;
+  Page parent;
+  ArrayList<Page> children;
   boolean visable; // true if page is rendering to screen
-  String name = "";
+  String name;
 
   Page(String name, Screen screen) {
     this.name = name;
     this.screen = screen;
-    this.subPages = new ArrayList<Page>(0);
+    this.children = new ArrayList<Page>(0);
     this.visable = true;
   }
 
   Page addPage(Page page) {
-    this.subPages.add(page);
+    this.children.add(page); // adds subpage and sets parent to this
+    page.parent = this;
     return this;
   }
 
   Page getPage(String target) {
     Page currentPage;
-    for (int i = 0; i < subPages.size(); i++) {
-      currentPage = this.subPages.get(i);
+    for (int i = 0; i < children.size(); i++) {
+      currentPage = this.children.get(i);
       if (currentPage.name == target) {
         return currentPage;
       }
@@ -29,15 +30,22 @@ class Page {
     return null;
   }
 
-  void show() {
+  Page show() {
     if (!this.visable) {
-      return;
+      return this;
     }
     // show page to screen here
     println("showing page:", this.name);
     // show page to screen here
-    for (int i = 0; i < subPages.size(); i++) {
-      subPages.get(i).show();
+    for (int i = 0; i < children.size(); i++) {
+      children.get(i).show();
     }
+    return this;
+  }
+
+  String savePage() { // returns name and name of children for saving to file
+    String text = this.name;
+    
+    return text;
   }
 }
