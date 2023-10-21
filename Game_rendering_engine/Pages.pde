@@ -4,13 +4,19 @@ class Page {
   Page parent;
   ArrayList<Page> children;
   boolean visable; // true if page is rendering to screen
+  boolean loaded; // true if page and objects are loaded
   String name;
 
-  Page(String name, Screen screen) {
+  Page(String name, Screen screen, boolean visable) {
     this.name = name;
     this.screen = screen;
     this.children = new ArrayList<Page>(0);
-    this.visable = true;
+    this.visable = visable;
+    this.loaded = true;
+  }
+  
+  Page(String name, Screen screen) {
+    this(name, screen, true); 
   }
 
   Page addPage(Page page) {

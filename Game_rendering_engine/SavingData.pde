@@ -18,7 +18,7 @@ Page loadPages(Page rootPage) {
     while ((line = infile.readLine()) != null) {
       String[] args = split(line, '\t');
       int newDepth = args.length - 1; // number of .\t before page data
-      Page newPage = new Page(args[newDepth], screen);
+      Page newPage = new Page(args[newDepth], screen, !args[0].equals("1"));
       if (newDepth > depth) { // page has child
         page.addPage(newPage);
       }

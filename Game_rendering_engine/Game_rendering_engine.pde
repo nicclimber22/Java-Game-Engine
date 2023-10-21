@@ -8,8 +8,9 @@ void setup() {
   frameRate(120);
   screen = new Screen(200, 200, 800, 800, 100, 100);
   pageRoot = loadPages(pageRoot); // idk this works but it does and dont fuck with it 
+  pageRoot.visable = true;
   pageRoot.show();
-  //savePages(pageRoot);
+  savePages(pageRoot);
 }
 
 float theta = 0;

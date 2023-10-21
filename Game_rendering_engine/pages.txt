@@ -1,10 +1,11 @@
 root
-.	home
-.	.	quit
+.	start screen
 .	.	settings
-.	.	.	boof
-.	.	.	.	ass
-.	.	.	.	.	chicken
+.	.	quit game
+.	level select
 .	game
-.	.	quit
+.	.	pause menu
 .	.	settings
+.	.	quit game
+.	win screen
+.	.	quit game
