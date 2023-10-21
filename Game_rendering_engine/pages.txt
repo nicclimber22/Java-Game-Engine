@@ -1,7 +1,10 @@
 root
-	home
-		quit
-		settings
-	game
-		quit
-		settings
+.	home
+.	.	quit
+.	.	settings
+.	.	.	boof
+.	.	.	.	ass
+.	.	.	.	.	chicken
+.	game
+.	.	quit
+.	.	settings

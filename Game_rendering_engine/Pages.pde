@@ -14,8 +14,8 @@ class Page {
   }
 
   Page addPage(Page page) {
-    this.children.add(page); // adds subpage and sets parent to this
     page.parent = this;
+    children.add(page); // adds subpage and sets parent to this
     return this;
   }
 
@@ -43,9 +43,15 @@ class Page {
     return this;
   }
 
-  String savePage() { // returns name and name of children for saving to file
-    String text = this.name;
-    
+  StringList savePage() { // returns name and name of children for saving to file
+    StringList text = new StringList();
+    text.append(this.name);
+    for (int i = 0; i < children.size(); i++) {
+      StringList childText = children.get(i).savePage();
+      for (int j = 0; j < childText.size(); j++) {
+        text.append(".\t" + childText.get(j));
+      }
+    }
     return text;
   }
 }

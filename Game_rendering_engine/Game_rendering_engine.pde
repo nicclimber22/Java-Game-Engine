@@ -7,20 +7,16 @@ void setup() {
   size(1000, 1000);
   frameRate(120);
   screen = new Screen(200, 200, 800, 800, 100, 100);
-  pageRoot = new Page("root", screen);
-  pageRoot.addPage(new Page("home", screen));
-  pageRoot.getPage("home").addPage(new Page("quit", screen)).addPage(new Page("settings", screen));
-  pageRoot.addPage(new Page("game", screen));
-  pageRoot.getPage("game").addPage(new Page("quit", screen)).addPage(new Page("settings", screen));
+  pageRoot = loadPages(pageRoot); // idk this works but it does and dont fuck with it 
   pageRoot.show();
-  savePages(pageRoot);
+  //savePages(pageRoot);
 }
 
 float theta = 0;
 void draw() {
   background(25);
   //pageRoot.show(); //
-  theta = theta + 1/frameRate;
+  theta = theta + 2 / frameRate;
   theta = theta % TAU;
 
 
